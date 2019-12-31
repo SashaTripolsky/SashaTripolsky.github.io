@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Sasha's site</title>
-</head>
-<body>
-<h2>This is Sasha's web site!</h2>
-<p>I am 11 years old</p>
-rgfsgfsgfd
-</body>
+    <head>
+        <title>Sasha's site</title>
+        <style>
+            body > .circle {
+                background-color: green;
+                min-height: 250px;
+                min-width: 250px;
+                max-height: 250px;
+                max-width: 250px;
+            }
+
+            .circle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .circle > * {
+                flex: 1;
+            }
+
+            .circle > .circle {
+                background-color: yellow;
+                margin: 50px;
+            }
+
+            .circle > .circle > .circle {
+                background-color: red;
+                margin: 50px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h2>This is Sasha's web site!</h2>
+        <p>I am 11 years old</p>
+        <div class="circle">
+            <div class="circle">
+                <div class="circle">
+                    <div class="circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>
+            <button onclick="moveLeft()">move left</button>
+            <button onclick="moveRight()">move right</button>
+        </p>
+        <script>
+            let margin = 0;
+            function moveLeft() {
+                margin -= 25;
+                const circle = document.querySelector("body>.circle");
+                circle.style.marginLeft = `${margin}px`;
+            }
+            function moveRight() {
+                margin += 25;
+                const circle = document.querySelector("body>.circle");
+                circle.style.marginLeft = `${margin}px`;
+            }
+        </script>
+    </body>
 </html>
